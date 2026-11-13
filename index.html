@@ -118,6 +118,12 @@ input,textarea,select{background:#fff;border:2px solid #b8b8b8;color:#080808}inp
 
 /* Align the approved logo artwork pink with the site brand colour #ff2995, leaving white unchanged. */
 .logo .brand-logo-image{filter:url(#unitails-logo-pink)}
+
+/* Slightly larger, gently animated approved UniTails logo. */
+.logo .brand-logo-image{width:104px;height:92px;transform-origin:50% 70%;animation:unitailsLogoFloat 3.2s ease-in-out infinite;will-change:transform}
+@keyframes unitailsLogoFloat{0%,100%{transform:translateY(0) rotate(0deg)}45%{transform:translateY(-3px) rotate(-3deg)}70%{transform:translateY(-1px) rotate(1.5deg)}}
+@media(max-width:800px){.logo .brand-logo-image{width:88px;height:80px}}
+@media(prefers-reduced-motion:reduce){.logo .brand-logo-image{animation:none}}
 </style>
 <style>
 :root{--pink:#ff3291;--turq:#00b8c4;--yellow:#ffd84d;--lime:#c8f36b;--lilac:#ff2995;--ink:#20232a;--paper:#fffdf7}
