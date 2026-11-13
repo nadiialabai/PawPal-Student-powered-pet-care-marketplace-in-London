@@ -247,6 +247,41 @@ footer{background:#ff2995;color:#111;margin:0 3% 20px;border-radius:26px}.notice
  header>button:not(.menu-toggle){display:none}
 }
 </style>
+
+<style id="unitails-design-system-2026">
+/* Consolidated visual system: one signature pink, neutral surfaces, consistent spacing. */
+:root{--ut-pink:#ff2995;--ut-ink:#111111;--ut-muted:#4b4b4b;--ut-line:#e7e7e7;--ut-radius:20px;--ut-space:24px}
+body{background:#fff;color:var(--ut-ink)}
+section{padding:76px 5%}
+.center{margin-bottom:36px}
+.center h2{letter-spacing:-.045em}
+.grid,.split{gap:22px}
+/* Quiet card surfaces; photography and CTAs provide the colour. */
+#about .grid .tile,#services .grid .tile,#about .grid .tile.community-pink,#services .grid .tile.home-visits-pink{background:#fff!important;color:var(--ut-ink)!important;border:1px solid var(--ut-line)!important;border-radius:var(--ut-radius)!important;box-shadow:0 8px 24px rgba(0,0,0,.045)!important}
+#about .grid .tile h3,#services .grid .tile h3{color:var(--ut-ink)!important}
+#about .grid .tile p,#services .grid .tile p{color:var(--ut-muted)!important}
+#about .grid .tile:hover,#services .grid .tile:hover{box-shadow:0 12px 30px rgba(0,0,0,.09)!important;transform:translateY(-2px)}
+#about .grid .tile{padding:28px!important}
+#about .grid .tile .emoji{background:none!important;filter:none!important;-webkit-filter:none!important}
+#about .grid .tile .community-house-icon{filter:none!important;-webkit-filter:none!important}
+#services>.grid>.tile{padding:24px!important;min-height:365px}
+#services>.grid>.tile>img{border-radius:14px!important}
+/* Make the two audience panels equally calm and legible. */
+#how #students,#how #owners{background:#fff!important;color:var(--ut-ink)!important;border:1px solid var(--ut-line)!important;border-radius:var(--ut-radius)!important;box-shadow:0 8px 24px rgba(0,0,0,.045)}
+#how #students p,#how #owners p,#how #students li,#how #owners li{color:var(--ut-muted)!important}
+#how #students h2,#how #owners h2{color:var(--ut-ink)!important}
+#how #students .kicker,#how #owners .kicker{color:#d31470!important}
+/* Reserve pink for the hero and primary conversion buttons. */
+#how .panel button,.btn-pink{background:var(--ut-pink)!important;color:#111!important;border:1px solid #111!important}
+#services .pet-photo-strip{height:150px;border:1px solid var(--ut-line);border-radius:var(--ut-radius);margin:22px 0 30px}
+/* Neutral trust and footer sections avoid competing with the hero. */
+.trust{background:#fafafa!important;color:var(--ut-ink)!important;border:1px solid var(--ut-line);border-radius:var(--ut-radius)!important}
+.trust h2,.trust .kicker,.trust p{color:var(--ut-ink)!important}
+.trust-list>div{border:1px solid var(--ut-line)!important;border-radius:16px!important;box-shadow:none!important}
+footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--ut-radius)!important}
+@media(max-width:800px){section{padding:56px 5%}#services .pet-photo-strip{height:105px}#services>.grid>.tile{min-height:0}}
+@media(prefers-reduced-motion:reduce){#about .grid .tile,#services .grid .tile{transition:none!important;transform:none!important}}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#home">Home</a><a href="#students">Find Part-Time Work</a><a href="#owners">Find a Pet Carer</a><a href="#how">How It Works</a><a href="#about">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
