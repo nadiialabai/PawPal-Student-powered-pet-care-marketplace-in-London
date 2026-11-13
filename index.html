@@ -180,6 +180,10 @@ input,textarea,select{background:#fff;border:2px solid #b8b8b8;color:#080808}inp
 #about .tile.community-pink h3,#about .tile.community-pink p{color:#090909!important}
 
 #about .community-house-icon{display:block;width:40px;height:40px;max-width:100%;filter:none!important}
+
+/* Override global grayscale emoji treatment specifically for the colourful house. */
+#about .tile.community-pink > .emoji{filter:none!important;-webkit-filter:none!important;opacity:1!important}
+#about .tile.community-pink .community-house-icon{filter:none!important;-webkit-filter:none!important;opacity:1!important}
 </style>
 <style>
 :root{--pink:#ff3291;--turq:#00b8c4;--yellow:#ffd84d;--lime:#c8f36b;--lilac:#ff2995;--ink:#20232a;--paper:#fffdf7}
