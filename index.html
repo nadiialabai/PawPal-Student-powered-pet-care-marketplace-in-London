@@ -139,10 +139,10 @@ input,textarea,select{background:#fff;border:2px solid #b8b8b8;color:#080808}inp
 
 /* Original GitHub PNG is used in both layers: only its upper toe area gently flexes. */
 .logo .brand-logo-layers{position:relative;display:block;width:112px;height:94px;flex:none}
-.logo .brand-logo-original{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:url(#unitails-logo-pink)}
-.logo .brand-logo-base{clip-path:inset(34% 0 0 0)}
-.logo .brand-logo-flex{clip-path:inset(0 0 64% 0);transform-origin:50% 36%;animation:unitailsOriginalToeFlex 3s ease-in-out infinite}
-@keyframes unitailsOriginalToeFlex{0%,16%,78%,100%{transform:scaleX(1) translateY(0)}38%,55%{transform:scaleX(1.09) translateY(-2px)}}
+.logo .brand-logo-original{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:none}
+.logo .brand-logo-base{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,transparent 28%,#000 46%,#000 100%);mask-image:linear-gradient(to bottom,transparent 0%,transparent 28%,#000 46%,#000 100%)}
+.logo .brand-logo-flex{-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 28%,transparent 46%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 28%,transparent 46%,transparent 100%);transform-origin:50% 32%;animation:unitailsOriginalToeFlex 3s ease-in-out infinite}
+@keyframes unitailsOriginalToeFlex{0%,16%,78%,100%{transform:scaleX(1) translateY(0)}38%,55%{transform:scaleX(1.045) translateY(-1px)}}
 @media(max-width:800px){.logo .brand-logo-layers{width:96px;height:82px}}
 @media(prefers-reduced-motion:reduce){.logo .brand-logo-flex{animation:none}}
 </style>
