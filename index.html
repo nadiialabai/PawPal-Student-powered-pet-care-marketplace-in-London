@@ -124,6 +124,18 @@ footer{background:#ff2995;color:#111;margin:0 3% 20px;border-radius:26px}.notice
 @media(max-width:800px){#services>.grid{grid-template-columns:1fr}#services>.grid>.tile{min-height:0}}
 
 #services>.grid>.tile>img.home-visits-photo{display:block!important;flex:none!important;width:100%!important;height:210px!important;min-height:210px!important;max-height:210px!important;object-fit:cover!important;object-position:center!important;border-radius:16px}
+
+/* Mobile navigation: compact header and menu that opens only on demand */
+@media(max-width:950px){
+ header{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 5%;min-height:84px}
+ header .logo{display:inline-flex;align-items:center;flex:0 0 auto}
+ header .logo svg{width:74px;height:72px}
+ header .menu-toggle{display:inline-flex;order:2;margin-left:auto;padding:10px 16px;font-size:15px;line-height:1.2;border-radius:999px;min-height:44px}
+ header #primary-nav{display:none!important;order:3;flex:0 0 100%;width:100%;max-width:100%;overflow:visible;white-space:normal;margin:4px 0 0;padding:8px 0 10px;border-top:1px solid #ddd;flex-direction:column;align-items:stretch;gap:0}
+ header #primary-nav.is-open{display:flex!important}
+ header #primary-nav a{display:block;text-align:left;font-size:16px;line-height:1.35;padding:13px 12px;border-bottom:1px solid #eee}
+ header>button:not(.menu-toggle){display:none}
+}
 </style>
 </head>
 <body>
