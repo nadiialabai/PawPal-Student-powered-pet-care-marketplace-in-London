@@ -538,4 +538,22 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
  }));
 })();
 </script>
+
+<script id="unitails-audience-nav-scroll">
+(function(){
+  const links=document.querySelectorAll('#primary-nav a[href="#students"],#primary-nav a[href="#owners"]');
+  links.forEach(link=>link.addEventListener('click',function(e){
+    const mobile=window.matchMedia('(max-width:800px)').matches;
+    const target=document.querySelector(mobile?this.getAttribute('href'):'#how .center');
+    if(!target)return;
+    e.preventDefault();
+    const header=document.querySelector('body>header');
+    const desktopHeader=header?header.getBoundingClientRect().height:0;
+    const offset=mobile?112:desktopHeader+20;
+    const top=Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset);
+    window.scrollTo({top,behavior:'smooth'});
+    history.replaceState(null,'',this.getAttribute('href'));
+  }));
+})();
+</script>
 </body></html>
