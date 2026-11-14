@@ -654,6 +654,33 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 <script>function toggleMenu(button){const nav=document.getElementById("primary-nav");const open=nav.classList.toggle("is-open");button.setAttribute("aria-expanded",String(open));button.innerHTML=open?'<span class="menu-close-glyph" aria-hidden="true">×</span>':"Menu ☰";button.setAttribute("aria-label",open?"Close menu":"Open menu");}document.querySelectorAll("#primary-nav a").forEach(a=>a.addEventListener("click",()=>{const nav=document.getElementById("primary-nav");nav.classList.remove("is-open");const btn=document.querySelector(".menu-toggle");btn.setAttribute("aria-expanded","false");btn.textContent="Menu ☰";}));</script><script>
 /* Dismiss the expanded mobile navigation as soon as the page starts scrolling. */
 (function(){let lastY=window.scrollY;function closeOnScroll(){if(window.matchMedia('(max-width:800px)').matches)return;const nav=document.getElementById('primary-nav');if(!nav||!nav.classList.contains('is-open')){lastY=window.scrollY;return;}if(Math.abs(window.scrollY-lastY)>1){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}lastY=window.scrollY;}window.addEventListener('scroll',closeOnScroll,{passive:true});})();
+</script><script id="unitails-mobile-menu-outside-dismiss">
+(function(){
+ const nav=document.getElementById('primary-nav');
+ const header=document.querySelector('body>header');
+ const toggle=document.querySelector('.menu-toggle');
+ if(!nav||!header||!toggle)return;
+ function closeMenu(){
+  if(!nav.classList.contains('is-open'))return;
+  nav.classList.remove('is-open');
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label','Open menu');
+  toggle.textContent='Menu ☰';
+ }
+ // A tap on the page backdrop should close the menu without activating what is behind it.
+ document.addEventListener('pointerdown',function(event){
+  if(window.innerWidth>800||!nav.classList.contains('is-open'))return;
+  if(!header.contains(event.target)){closeMenu();event.preventDefault();}
+ },true);
+ // Escape also dismisses navigation for keyboard users.
+ document.addEventListener('keydown',function(event){
+  if(event.key==='Escape'&&nav.classList.contains('is-open')){closeMenu();toggle.focus();}
+ });
+ // Close on a swipe on the page outside the header.
+ document.addEventListener('touchmove',function(event){
+  if(window.innerWidth<=800&&nav.classList.contains('is-open')&&!header.contains(event.target))closeMenu();
+ },{passive:true});
+})();
 </script><script id="unitails-mobile-home-return-script">(function(){const btn=document.querySelector('.mobile-home-return');if(!btn)return;function update(){btn.classList.toggle('is-visible',window.innerWidth<=800&&window.scrollY>260)}window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});btn.addEventListener('click',function(){const nav=document.getElementById('primary-nav');if(nav)nav.classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰'}});update()})();</script><script id="unitails-audience-nav-scroll">
 (function(){
   const links=document.querySelectorAll('#primary-nav a[href="#students"],#primary-nav a[href="#owners"]');
