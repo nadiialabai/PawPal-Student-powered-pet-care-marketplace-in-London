@@ -689,6 +689,28 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  main#home>section,main#home>.hero,#how .split>.panel{height:auto!important;max-height:none!important;overflow:visible!important}
 }
 </style>
+
+<style id="unitails-mobile-section-viewport-structural-fix">
+/* One source of truth: earlier inline JS min-height override has been removed. */
+@media(max-width:800px){
+ :root{--unitails-mobile-header-space:110px}
+ html body main#home>.hero{
+   min-height:calc(100dvh + var(--unitails-mobile-header-space))!important;
+   height:auto!important;
+   box-sizing:border-box!important;
+ }
+ html body main#home>section{
+   min-height:calc(100dvh + 12px)!important;
+   height:auto!important;
+   box-sizing:border-box!important;
+   scroll-margin-top:var(--unitails-mobile-header-space)!important;
+ }
+ html body main#home #how .split>.panel{
+   min-height:calc(100dvh - var(--unitails-mobile-header-space) + 16px)!important;
+   box-sizing:border-box!important;
+ }
+}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">How It Works</a><a href="#services">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
@@ -710,21 +732,7 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 /* Dismiss the expanded mobile navigation as soon as the page starts scrolling. */
 (function(){let lastY=window.scrollY;function closeOnScroll(){const nav=document.getElementById('primary-nav');if(!nav||!nav.classList.contains('is-open')){lastY=window.scrollY;return;}if(Math.abs(window.scrollY-lastY)>1){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}lastY=window.scrollY;}window.addEventListener('scroll',closeOnScroll,{passive:true});window.addEventListener('touchmove',function(){const nav=document.getElementById('primary-nav');if(nav&&nav.classList.contains('is-open')){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}},{passive:true});})();
 </script><script id="unitails-mobile-home-return-script">(function(){const btn=document.querySelector('.mobile-home-return');if(!btn)return;function update(){btn.classList.toggle('is-visible',window.innerWidth<=800&&window.scrollY>260)}window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});btn.addEventListener('click',function(){const nav=document.getElementById('primary-nav');if(nav)nav.classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰'}});update()})();</script><script id="unitails-direction-aware-mobile-header-script">(function(){const header=document.querySelector('body>header');if(!header)return;let lastY=Math.max(0,window.scrollY),upDistance=0;function setVisible(visible){header.classList.toggle('mobile-header-visible',visible);header.classList.toggle('mobile-header-hidden',!visible)}function handleScroll(){const y=Math.max(0,window.scrollY),delta=y-lastY;lastY=y;if(window.innerWidth>800){header.classList.remove('mobile-header-hidden','mobile-header-visible');return}const nav=document.getElementById('primary-nav');if(y<70||(nav&&nav.classList.contains('is-open'))){upDistance=0;setVisible(true);return}if(delta>2){upDistance=0;setVisible(false)}else if(delta< -2){upDistance+=-delta;if(upDistance>=8)setVisible(true)}}window.addEventListener('scroll',handleScroll,{passive:true});window.addEventListener('resize',handleScroll,{passive:true});handleScroll()})();</script>
-<script id="unitails-how-links-card-first-scroll">
-(function(){
- document.querySelectorAll('a[href="#how"]').forEach(a=>a.addEventListener('click',function(event){
-  const mobile=window.matchMedia('(max-width:800px)').matches;
-  const target=document.querySelector(mobile?'#how .center':'#how .split');
-  if(!target)return;
-  event.preventDefault();
-  const header=document.querySelector('body>header');
-  const desktopOffset=header&&getComputedStyle(header).position!=='fixed'?header.getBoundingClientRect().height+20:20;
-  const offset=mobile?110:desktopOffset;
-  window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:'smooth'});
-  history.replaceState(null,'','#how');
- }));
-})();
-</script>
+
 
 <script id="unitails-audience-nav-scroll">
 (function(){
@@ -890,19 +898,5 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 })();
 </script>
 
-<script id="unitails-mobile-first-screen-hero-viewport-sync">
-(function(){
- const hero=document.querySelector('main#home>.hero');
- if(!hero)return;
- function fitHero(){
-  if(window.innerWidth>800){hero.style.removeProperty('min-height');return;}
-  /* Use the measured mobile viewport rather than relying on Safari's svh calculation. */
-  const viewport=Math.max(window.innerHeight,window.visualViewport?window.visualViewport.height:0);
-  hero.style.setProperty('min-height',Math.ceil(viewport+12)+'px','important');
- }
- window.addEventListener('resize',fitHero,{passive:true});
- window.addEventListener('orientationchange',fitHero,{passive:true});
- fitHero();
-})();
-</script>
+
 </body></html>
