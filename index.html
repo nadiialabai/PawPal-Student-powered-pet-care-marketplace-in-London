@@ -516,6 +516,22 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  #how .split>.panel{scroll-margin-top:120px}
 }
 </style>
+
+<style id="unitails-mobile-how-visible-choices">
+/* Fit heading and both audience choice bars into the first mobile viewport. */
+@media(max-width:800px){
+ #how{padding-top:12px!important;padding-bottom:40px!important}
+ #how>.center{margin-bottom:12px!important}
+ #how>.center .kicker{font-size:11px!important;letter-spacing:.12em!important;margin-bottom:5px!important}
+ #how>.center h2{font-size:clamp(25px,6vw,32px)!important;line-height:1.12!important;margin:5px auto 0!important;max-width:360px!important}
+ #how .choice-heading-logo{width:44px!important;height:38px!important;margin-left:3px!important}
+ #how .how-mobile-choices{gap:9px!important;margin-bottom:20px!important}
+ #how .how-mobile-choice{min-height:76px!important;padding:10px 13px!important;border-radius:18px!important;gap:12px!important}
+ #how .how-choice-icon{width:46px!important;height:46px!important;flex-basis:46px!important;border-radius:13px!important;font-size:25px!important}
+ #how .how-choice-copy strong{font-size:17px!important}
+ #how .how-choice-copy small{font-size:12px!important}
+}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">How It Works</a><a href="#services">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
@@ -598,7 +614,7 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
    if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';}
    if(header){header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');}
    requestAnimationFrame(()=>requestAnimationFrame(()=>{
-     const selector=hash==='#how'?'#how .how-mobile-choices':hash;
+     const selector=hash==='#how'?'#how .center':hash;
      const target=document.querySelector(selector);
      if(!target)return;
      const offset=header?Math.ceil(header.getBoundingClientRect().height)+14:118;
