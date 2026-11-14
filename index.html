@@ -760,25 +760,11 @@ section.trust#trust{margin:12px 12px 24px!important;padding:26px 20px!important;
 @media(max-width:800px){.hero h1.unitails-hero-heading{font-size:clamp(39px,9.3vw,56px)!important;line-height:1.06!important}.hero h1.unitails-hero-heading .unitails-happy-pets{font-size:1.08em!important}}
 </style>
 
-<style id="unitails-organic-hero-photo-treatment">
-/* Organic editorial photo treatment; original dog image remains unchanged. */
-.hero>.hero-art{
-  border:0!important;
-  border-radius:42% 28% 36% 24% / 24% 34% 26% 38%!important;
-  background:transparent!important;
-  box-shadow:none!important;
-  overflow:hidden!important;
-  -webkit-mask-image:radial-gradient(ellipse 75% 73% at 50% 49%,#000 70%,rgba(0,0,0,.96) 80%,rgba(0,0,0,.55) 91%,transparent 100%)!important;
-  mask-image:radial-gradient(ellipse 75% 73% at 50% 49%,#000 70%,rgba(0,0,0,.96) 80%,rgba(0,0,0,.55) 91%,transparent 100%)!important;
-}
-.hero>.hero-art>.hero-photo{
-  border:0!important;
-  border-radius:inherit!important;
-  filter:saturate(.94) contrast(.98)!important;
-}
-@media(max-width:800px){
- .hero>.hero-art{border-radius:32% 23% 29% 20% / 20% 29% 22% 31%!important}
-}
+<style id="unitails-photo-clean-rounded-frame">
+/* Restore a natural, clean photo frame without irregular clipping or fades. */
+.hero>.hero-art{border-radius:22px!important;overflow:hidden!important;-webkit-mask-image:none!important;mask-image:none!important;background:transparent!important;box-shadow:none!important}
+.hero>.hero-art>.hero-photo{border-radius:0!important;filter:none!important}
+@media(max-width:800px){.hero>.hero-art{border-radius:20px!important}}
 </style>
 </head>
 <body>
