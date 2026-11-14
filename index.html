@@ -756,24 +756,16 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 </script>
 
 <script id="unitails-tap-to-reveal-mobile-header">
-/* Tapping non-interactive page content opens the actual mobile menu. */
+/* A tap on page content reveals the compact header; only Menu opens navigation links. */
 (function(){
  const header=document.querySelector('body>header');
- const nav=document.getElementById('primary-nav');
- const button=document.querySelector('.menu-toggle');
- if(!header||!nav||!button)return;
+ if(!header)return;
  let startX=0,startY=0,dragged=false;
  const mobile=()=>window.matchMedia('(max-width:800px)').matches;
  const interactive='header,button,a,input,textarea,select,summary,dialog,label,[contenteditable="true"]';
- function openNavigation(){
+ function reveal(){
   header.classList.remove('mobile-header-hidden');
   header.classList.add('mobile-header-visible');
-  if(!nav.classList.contains('is-open')){
-   nav.classList.add('is-open');
-   button.setAttribute('aria-expanded','true');
-   button.setAttribute('aria-label','Close menu');
-   button.innerHTML='<span class="menu-close-glyph" aria-hidden="true">×</span>';
-  }
  }
  document.addEventListener('touchstart',e=>{
   if(e.touches.length!==1)return;
@@ -785,11 +777,11 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  },{passive:true});
  document.addEventListener('touchend',e=>{
   if(!mobile()||dragged||e.changedTouches.length!==1||e.target.closest(interactive))return;
-  openNavigation();
+  reveal();
  },{passive:true});
  document.addEventListener('click',e=>{
   if(!mobile()||e.detail===0||e.pointerType!=='mouse'||e.target.closest(interactive))return;
-  openNavigation();
+  reveal();
  });
 })();
 </script>
