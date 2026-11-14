@@ -611,6 +611,29 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
   html.unitails-mobile-views main#home>#trust{padding-top:24px!important}
 }
 </style>
+<style id="unitails-natural-mobile-scroll">
+/* A conventional continuous page: sections remain in document flow. */
+@media(max-width:800px){
+ html{scroll-behavior:smooth!important;scroll-padding-top:116px!important}
+ body{overflow-y:auto!important;height:auto!important;min-height:100svh}
+ main#home{height:auto!important;min-height:0!important;overflow:visible!important;padding-bottom:0!important}
+ main#home>section,main#home>.hero{scroll-margin-top:116px!important;min-height:0!important}
+ #how #students,#how #owners{scroll-margin-top:116px!important}
+ body.unitails-student-view #how #owners,body.unitails-owner-view #how #students{display:flex!important}
+ #how .split{grid-template-columns:minmax(0,1fr)!important}
+ .hero-paths{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:18px 0}
+ .hero-paths>a,main#home .journey-next>a{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;min-height:48px;border:1.5px solid #111;border-radius:16px;background:#fff;color:#111;font-size:14px;font-weight:700}
+ .hero-paths>a.hero-path-primary{background:#111;color:#fff}
+ main#home .journey-next{display:flex!important;flex-wrap:wrap;gap:10px;margin:20px 0 0;padding:0;white-space:normal;overflow:visible}
+ .mobile-how-intro{display:none!important}
+ main#home>.hero{padding-top:24px!important;padding-bottom:34px!important}
+ main#home>section{padding-top:40px!important;padding-bottom:40px!important}
+ main#home>#how .split{gap:18px!important}
+ main#home>#how .panel{min-height:0!important;height:auto!important}
+ main#home .journey-next a:focus-visible,.hero-paths a:focus-visible{outline:3px solid #111;outline-offset:3px}
+}
+@media(max-width:800px) and (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a class="mobile-section-link" href="#home">Home</a><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#how">How It Works</a><a href="#about">About UniTails</a><a href="#services">Our Services</a><a class="mobile-section-link" href="#trust">Safety and Responsibility</a><a class="mobile-section-link" href="#faq">FAQs</a><a class="mobile-section-link" href="#get-involved">Get Involved</a></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
@@ -652,6 +675,7 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 <script id="unitails-audience-view-routing">
 (function(){
  function apply(hash){
+  if(window.matchMedia('(max-width:800px)').matches){document.body.classList.remove('unitails-student-view','unitails-owner-view');return;}
   document.body.classList.toggle('unitails-student-view',hash==='#students');
   document.body.classList.toggle('unitails-owner-view',hash==='#owners');
  }
@@ -683,98 +707,5 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 
 
 
-<script id="unitails-mobile-section-router">
-(function(){
-  const mobile=window.matchMedia('(max-width:800px)');
-  const root=document.documentElement;
-  const body=document.body;
-  const main=document.getElementById('home');
-  const header=document.querySelector('body>header');
-  const nav=document.getElementById('primary-nav');
-  const toggle=header.querySelector('.menu-toggle');
-  const how=document.getElementById('how');
-  const intro=how.querySelector('.mobile-how-intro');
-  const split=how.querySelector('.split');
-  const footer=document.querySelector('body>footer');
-  const views=new Map([
-    ['#home',main.querySelector('.hero')],
-    ['#about',document.getElementById('about')],
-    ['#how',how],['#students',document.getElementById('students')],
-    ['#owners',document.getElementById('owners')],
-    ['#services',document.getElementById('services')],
-    ['#trust',document.getElementById('trust')],
-    ['#faq',document.getElementById('faq')],
-    ['#get-involved',document.getElementById('get-involved')]
-  ]);
-  const links=Array.from(nav.querySelectorAll('a'));
-  const targets=[...new Set([...views.values(),intro,split,footer])];
-  const inactive='mobile-section-inactive';
-  let current;
-  function closeMenu(){
-    nav.classList.remove('is-open');
-    toggle.setAttribute('aria-expanded','false');
-    toggle.setAttribute('aria-label','Open menu');
-    toggle.textContent='Menu ☰';
-  }
-  function render(hash,focus){
-    if(!mobile.matches)return;
-    const route=views.has(hash)?hash:'#home';
-    if(current===route&&!focus)return;
-    current=route;
-    root.classList.add('unitails-mobile-views');
-    body.classList.remove('unitails-student-view','unitails-owner-view');
-    const view=views.get(route);
-    const audience=route==='#students'||route==='#owners';
-    const visible=new Set([view]);
-    if(audience){visible.add(how);visible.add(split);}
-    if(route==='#how')visible.add(intro);
-    if(route==='#get-involved')visible.add(footer);
-    targets.forEach(el=>el.classList.toggle(inactive,!visible.has(el)));
-    links.forEach(link=>{
-      if(link.hash===route)link.setAttribute('aria-current','page');
-      else link.removeAttribute('aria-current');
-    });
-    closeMenu();
-    window.scrollTo(0,0);
-    if(focus){
-      const heading=(route==='#how'?intro:view).querySelector('h1,h2');
-      if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}
-    }
-  }
-  function applyLocation(){render(location.hash,false);}
-  function syncMode(){
-    if(mobile.matches){history.scrollRestoration='manual';applyLocation();return;}
-    if(!root.classList.contains('unitails-mobile-views'))return;
-    history.scrollRestoration='auto';
-    current=undefined;
-    root.classList.remove('unitails-mobile-views');
-    targets.forEach(el=>el.classList.remove(inactive));
-    links.forEach(link=>link.removeAttribute('aria-current'));
-    body.classList.toggle('unitails-student-view',location.hash==='#students');
-    body.classList.toggle('unitails-owner-view',location.hash==='#owners');
-  }
-  document.addEventListener('click',event=>{
-    if(!mobile.matches||event.button!==0||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey)return;
-    const link=event.target.closest('a[href^="#"]');
-    if(!link||!views.has(link.hash))return;
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    if(location.hash!==link.hash)history.pushState(null,'',link.hash);
-    render(link.hash,true);
-  },true);
-  document.addEventListener('click',event=>{
-    if(mobile.matches&&nav.classList.contains('is-open')&&!header.contains(event.target))closeMenu();
-  });
-  document.addEventListener('keydown',event=>{
-    if(event.key==='Escape'&&mobile.matches&&nav.classList.contains('is-open')){
-      closeMenu();
-      toggle.focus({preventScroll:true});
-    }
-  });
-  window.addEventListener('popstate',applyLocation);
-  window.addEventListener('hashchange',applyLocation);
-  mobile.addEventListener('change',syncMode);
-  syncMode();
-})();
-</script>
+
 </body></html>
