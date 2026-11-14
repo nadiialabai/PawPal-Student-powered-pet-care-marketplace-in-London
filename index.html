@@ -399,35 +399,10 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
 @media(max-width:380px){header{width:calc(100% - 20px)!important;margin-left:10px!important;margin-right:10px!important;padding:8px 12px!important}}
 </style>
 
-<style id="unitails-mobile-header-scroll-away">
-/* Mobile navigation should scroll away with the page, not overlay content. */
-@media(max-width:800px){header{position:relative!important;top:auto!important;left:auto!important;right:auto!important;transform:none!important}}
-</style>
-
 <style id="unitails-mobile-home-return">
 .mobile-home-return{display:none}
 @media(max-width:800px){.mobile-home-return{position:fixed;bottom:calc(22px + env(safe-area-inset-bottom,0px));right:18px;z-index:95;display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#111;color:#fff;border:2px solid #fff;box-shadow:0 5px 18px #0003;text-decoration:none;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(10px);transition:opacity .2s ease,transform .2s ease,visibility .2s ease}.mobile-home-return.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.mobile-home-return:focus-visible{outline:3px solid #ff2995;outline-offset:3px}}
 @media(prefers-reduced-motion:reduce){.mobile-home-return{transition:none}}
-</style>
-
-<style id="unitails-direction-aware-mobile-header">
-/* Mobile: hide header on downward scrolling, reveal it when scrolling upward. */
-@media(max-width:800px){
- header{position:sticky!important;top:10px!important;z-index:100!important;transition:transform .28s cubic-bezier(.2,.8,.2,1),opacity .25s ease!important;will-change:transform}
- header.mobile-header-hidden{transform:translateY(calc(-100% - 24px))!important;opacity:0!important;pointer-events:none!important}
- header.mobile-header-visible{transform:translateY(0)!important;opacity:1!important;pointer-events:auto!important}
- .mobile-home-return{display:none!important}
-}
-@media(prefers-reduced-motion:reduce){header{transition:none!important}}
-</style>
-
-<style id="unitails-mobile-header-flush-top">
-/* When revealed during upward scrolling, attach the navigation to the top edge. */
-@media(max-width:800px){
- header{top:0!important;margin-top:0!important;border-radius:0 0 26px 26px!important}
- header.mobile-header-visible{top:0!important;margin-top:0!important}
- header.mobile-header-hidden{transform:translateY(calc(-100% - 16px))!important}
-}
 </style>
 
 <style id="unitails-mobile-header-clean-top">
@@ -436,27 +411,9 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
  body{padding-top:104px!important}
  body>header{position:fixed!important;inset:0 0 auto 0!important;top:0!important;left:0!important;right:0!important;width:100%!important;max-width:100%!important;margin:0!important;padding:12px 22px!important;min-height:104px!important;box-sizing:border-box!important;background:#fff!important;border:0!important;border-radius:0 0 28px 28px!important;box-shadow:0 8px 22px rgba(0,0,0,.08)!important;z-index:100!important}
  body>header .brand-logo-layers{width:82px!important;height:72px!important}
- body>header.mobile-header-hidden{transform:translate3d(0,-110%,0)!important;opacity:1!important;pointer-events:none!important}
- body>header.mobile-header-visible{transform:translate3d(0,0,0)!important;opacity:1!important}
 }
 @media(max-width:380px){body>header{padding-inline:16px!important}}
 </style>
-
-<style id="unitails-scroll-down-hide-header">
-@media(max-width:800px){
- body>header{transition:transform .26s cubic-bezier(.22,.8,.25,1)!important;will-change:transform!important}
- body>header.mobile-header-hidden{transform:translate3d(0,-110%,0)!important;pointer-events:none!important;visibility:visible!important}
- body>header.mobile-header-visible{transform:translate3d(0,0,0)!important;pointer-events:auto!important}
-}
-@media(prefers-reduced-motion:reduce){body>header{transition:none!important}}
-</style>
-
-<style id="unitails-final-directional-header">
-@media(max-width:800px){body>header{position:fixed!important;top:0!important;left:0!important;right:0!important;margin:0!important;width:100%!important;border-radius:0 0 28px 28px!important;transition:transform .26s cubic-bezier(.22,.8,.25,1)!important;opacity:1!important}body>header.mobile-header-hidden{transform:translate3d(0,-110%,0)!important;pointer-events:none!important}body>header.mobile-header-visible{transform:translate3d(0,0,0)!important;pointer-events:auto!important}}
-@media(prefers-reduced-motion:reduce){body>header{transition:none!important}}
-</style>
-
-
 
 <style id="unitails-menu-icon-only-close">
 @media(max-width:800px){header .menu-toggle{width:154px!important;min-width:154px!important;max-width:154px!important;height:48px!important;min-height:48px!important;box-sizing:border-box!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;background:#fff!important;color:#111!important;border:2px solid #111!important;border-radius:999px!important;padding:0 12px!important}header .menu-toggle[aria-expanded="true"]{background:#fff!important;color:#111!important}header .menu-close-glyph{font-family:Arial,sans-serif;font-size:30px;font-weight:400;line-height:1;display:block;transform:translateY(-1px)}}
@@ -597,6 +554,7 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 <style id="unitails-mobile-section-views">
 #primary-nav .mobile-section-link,.mobile-nav-label,.mobile-how-intro{display:none}
 @media(max-width:800px){
+  body>header{position:fixed!important;inset:0 0 auto!important;transform:none!important;transition:none!important;z-index:100!important}
   .desktop-nav-label{display:none}
   .mobile-nav-label{display:inline}
   body>header #primary-nav.is-open .mobile-section-link{display:block}
@@ -654,11 +612,8 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 <script>function openForm(type){document.getElementById('formtitle').textContent=type==='student'?'Student interest form':'Pet owner interest form';document.getElementById('formdesc').textContent=type==='student'?'Preview how students will express interest in flexible pet-care work.':'Preview how local pet owners will express interest in UniTails.';document.getElementById('detailslabel').textContent=type==='student'?'University and relevant pet-care experience (optional)':'Animals and care requirements (optional)';document.getElementById('interest').reset();document.getElementById('success').style.display='none';document.getElementById('signup').showModal()}document.getElementById('interest').addEventListener('submit',function(e){e.preventDefault();document.getElementById('success').style.display='block'});</script>
 <script>function toggleMenu(button){const nav=document.getElementById("primary-nav");const open=nav.classList.toggle("is-open");button.setAttribute("aria-expanded",String(open));button.innerHTML=open?'<span class="menu-close-glyph" aria-hidden="true">×</span>':"Menu ☰";button.setAttribute("aria-label",open?"Close menu":"Open menu");}document.querySelectorAll("#primary-nav a").forEach(a=>a.addEventListener("click",()=>{const nav=document.getElementById("primary-nav");nav.classList.remove("is-open");const btn=document.querySelector(".menu-toggle");btn.setAttribute("aria-expanded","false");btn.textContent="Menu ☰";}));</script><script>
 /* Dismiss the expanded mobile navigation as soon as the page starts scrolling. */
-(function(){let lastY=window.scrollY;function closeOnScroll(){const nav=document.getElementById('primary-nav');if(!nav||!nav.classList.contains('is-open')){lastY=window.scrollY;return;}if(Math.abs(window.scrollY-lastY)>1){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}lastY=window.scrollY;}window.addEventListener('scroll',closeOnScroll,{passive:true});})();
-</script><script id="unitails-mobile-home-return-script">(function(){const btn=document.querySelector('.mobile-home-return');if(!btn)return;function update(){btn.classList.toggle('is-visible',window.innerWidth<=800&&window.scrollY>260)}window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});btn.addEventListener('click',function(){const nav=document.getElementById('primary-nav');if(nav)nav.classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰'}});update()})();</script><script id="unitails-direction-aware-mobile-header-script">(function(){const header=document.querySelector('body>header');if(!header)return;let lastY=Math.max(0,window.scrollY),upDistance=0;function setVisible(visible){header.classList.toggle('mobile-header-visible',visible);header.classList.toggle('mobile-header-hidden',!visible)}function handleScroll(){const y=Math.max(0,window.scrollY),delta=y-lastY;lastY=y;if(window.innerWidth>800){header.classList.remove('mobile-header-hidden','mobile-header-visible');return}const nav=document.getElementById('primary-nav');if(y<70||(nav&&nav.classList.contains('is-open'))){upDistance=0;setVisible(true);return}if(delta>2){upDistance=0;setVisible(false)}else if(delta< -2){upDistance+=-delta;if(upDistance>=8)setVisible(true)}}window.addEventListener('scroll',handleScroll,{passive:true});window.addEventListener('resize',handleScroll,{passive:true});handleScroll()})();</script>
-
-
-<script id="unitails-audience-nav-scroll">
+(function(){let lastY=window.scrollY;function closeOnScroll(){if(window.matchMedia('(max-width:800px)').matches)return;const nav=document.getElementById('primary-nav');if(!nav||!nav.classList.contains('is-open')){lastY=window.scrollY;return;}if(Math.abs(window.scrollY-lastY)>1){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}lastY=window.scrollY;}window.addEventListener('scroll',closeOnScroll,{passive:true});})();
+</script><script id="unitails-mobile-home-return-script">(function(){const btn=document.querySelector('.mobile-home-return');if(!btn)return;function update(){btn.classList.toggle('is-visible',window.innerWidth<=800&&window.scrollY>260)}window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});btn.addEventListener('click',function(){const nav=document.getElementById('primary-nav');if(nav)nav.classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰'}});update()})();</script><script id="unitails-audience-nav-scroll">
 (function(){
   const links=document.querySelectorAll('#primary-nav a[href="#students"],#primary-nav a[href="#owners"]');
   links.forEach(link=>link.addEventListener('click',function(e){
@@ -687,37 +642,6 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  });
  window.addEventListener('hashchange',()=>apply(location.hash));
  apply(location.hash);
-})();
-</script>
-
-<script id="unitails-tap-to-reveal-mobile-header">
-/* A tap on page content reveals the compact header; only Menu opens navigation links. */
-(function(){
- const header=document.querySelector('body>header');
- if(!header)return;
- let startX=0,startY=0,dragged=false;
- const mobile=()=>window.matchMedia('(max-width:800px)').matches;
- const interactive='header,button,a,input,textarea,select,summary,dialog,label,[contenteditable="true"]';
- function reveal(){
-  header.classList.remove('mobile-header-hidden');
-  header.classList.add('mobile-header-visible');
- }
- document.addEventListener('touchstart',e=>{
-  if(e.touches.length!==1)return;
-  startX=e.touches[0].clientX;startY=e.touches[0].clientY;dragged=false;
- },{passive:true});
- document.addEventListener('touchmove',e=>{
-  if(e.touches.length!==1)return;
-  if(Math.abs(e.touches[0].clientX-startX)>10||Math.abs(e.touches[0].clientY-startY)>10)dragged=true;
- },{passive:true});
- document.addEventListener('touchend',e=>{
-  if(!mobile()||dragged||e.changedTouches.length!==1||e.target.closest(interactive))return;
-  reveal();
- },{passive:true});
- document.addEventListener('click',e=>{
-  if(!mobile()||e.detail===0||e.pointerType!=='mouse'||e.target.closest(interactive))return;
-  reveal();
- });
 })();
 </script>
 
@@ -773,8 +697,6 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
     toggle.setAttribute('aria-expanded','false');
     toggle.setAttribute('aria-label','Open menu');
     toggle.textContent='Menu ☰';
-    header.classList.remove('mobile-header-hidden');
-    header.classList.add('mobile-header-visible');
   }
   function render(hash,focus){
     if(!mobile.matches)return;
@@ -822,6 +744,15 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
     if(location.hash!==link.hash)history.pushState(null,'',link.hash);
     render(link.hash,true);
   },true);
+  document.addEventListener('click',event=>{
+    if(mobile.matches&&nav.classList.contains('is-open')&&!header.contains(event.target))closeMenu();
+  });
+  document.addEventListener('keydown',event=>{
+    if(event.key==='Escape'&&mobile.matches&&nav.classList.contains('is-open')){
+      closeMenu();
+      toggle.focus({preventScroll:true});
+    }
+  });
   window.addEventListener('popstate',applyLocation);
   window.addEventListener('hashchange',applyLocation);
   mobile.addEventListener('change',syncMode);
