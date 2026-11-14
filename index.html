@@ -886,6 +886,25 @@ main#home>.hero .ut-paws{width:73px!important;bottom:12px!important;left:12px!im
 }
 @media(max-width:370px){main#home>.hero .ut-cap{width:62px!important;left:3px!important}main#home>.hero .ut-whiskers{width:61px!important;right:1px!important}main#home>.hero .ut-paws{width:55px!important}}
 </style>
+
+<style id="unitails-navigation-polish-v1">
+/* Higher-contrast, refined navigation; no changes to links or mobile menu behaviour. */
+@media(min-width:801px){
+body>header #primary-nav{display:flex!important;align-items:center!important;gap:clamp(4px,.65vw,11px)!important;padding:5px!important;background:#FFF5F9!important;border:1px solid #F5D9E6!important;border-radius:999px!important;box-shadow:0 2px 12px rgba(23,23,23,.035)!important}
+body>header #primary-nav>a:not(.mobile-section-link){display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:40px!important;padding:10px clamp(11px,1.15vw,18px)!important;border-radius:999px!important;font-family:'DM Sans',Arial,sans-serif!important;font-size:clamp(12px,.95vw,14px)!important;font-weight:800!important;letter-spacing:-.015em!important;line-height:1.1!important;color:#171717!important;text-decoration:none!important;white-space:nowrap!important;transition:background .2s ease,color .2s ease,transform .2s ease!important}
+body>header #primary-nav>a:not(.mobile-section-link):hover{background:#FF2995!important;color:#fff!important;transform:translateY(-1px)!important}
+body>header #primary-nav>a:not(.mobile-section-link):focus-visible{outline:3px solid #171717!important;outline-offset:2px!important}
+body>header #primary-nav>a[href="#owners"]{background:#171717!important;color:#fff!important}
+body>header #primary-nav>a[href="#owners"]:hover{background:#FF2995!important;color:#fff!important}
+}
+@media(max-width:800px){
+body>header #primary-nav.is-open{background:#FFF9F7!important;border:1px solid #F3D9E4!important;border-radius:18px!important;padding:9px!important;box-shadow:0 12px 28px rgba(23,23,23,.08)!important}
+body>header #primary-nav.is-open a{font-weight:750!important;color:#171717!important;border-radius:10px!important;border-bottom:1px solid #F2E5EA!important;padding:13px 15px!important}
+body>header #primary-nav.is-open a:hover,body>header #primary-nav.is-open a:focus-visible{background:#FFE2EF!important;color:#171717!important}
+body>header #primary-nav.is-open a[href="#owners"]{background:#FF2995!important;color:#fff!important;border-bottom-color:transparent!important}
+}
+@media(prefers-reduced-motion:reduce){body>header #primary-nav>a{transition:none!important}}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a class="mobile-section-link" href="#home">Home</a><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">Why UniTails?</a><a href="#services">Our Services</a><a class="mobile-section-link" href="#trust">Safety and Responsibility</a><a class="mobile-section-link" href="#faq">FAQs</a><a class="mobile-section-link" href="#get-involved">Get Involved</a></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button></header>
