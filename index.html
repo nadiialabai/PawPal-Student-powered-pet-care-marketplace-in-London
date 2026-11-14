@@ -634,6 +634,19 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  .hero p[style]{font-size:12px!important;line-height:1.35!important;margin:10px 0 0!important}
 }
 </style>
+
+<style id="unitails-mobile-hero-photo-before-description">
+@media(max-width:800px){
+ /* Flatten the copy wrapper so the photograph can sit immediately below the headline. */
+ .hero>div:first-child{display:contents!important}
+ .hero>.kicker{order:1!important}
+ .hero>h1{order:2!important;font-size:clamp(32px,7.7vw,43px)!important;line-height:1.02!important;margin:4px 0 0!important}
+ .hero>.hero-art{order:3!important;height:clamp(190px,28svh,250px)!important;min-height:190px!important;margin:0!important}
+ .hero>p:not([style]){order:4!important;margin:0!important}
+ .hero>p[style]{order:5!important;margin:0!important}
+ .hero{gap:12px!important;padding-top:18px!important}
+}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">How It Works</a><a href="#services">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
