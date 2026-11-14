@@ -742,4 +742,30 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  },true);
 })();
 </script>
+
+<script id="unitails-tap-to-reveal-mobile-header">
+/* A stationary tap anywhere in page content reveals the existing navigation. */
+(function(){
+ const header=document.querySelector('body>header');if(!header)return;
+ let startX=0,startY=0,moved=false;
+ document.addEventListener('touchstart',function(e){
+  if(e.touches.length!==1)return;
+  startX=e.touches[0].clientX;startY=e.touches[0].clientY;moved=false;
+ },{passive:true});
+ document.addEventListener('touchmove',function(e){
+  if(!e.touches.length)return;
+  if(Math.abs(e.touches[0].clientX-startX)>9||Math.abs(e.touches[0].clientY-startY)>9)moved=true;
+ },{passive:true});
+ document.addEventListener('touchend',function(e){
+  if(window.innerWidth>800||moved||e.changedTouches.length!==1)return;
+  if(e.target.closest('header,button,a,input,textarea,select,summary,dialog,label'))return;
+  header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');
+ },{passive:true});
+ document.addEventListener('click',function(e){
+  if(window.innerWidth>800||e.detail===0||e.pointerType!=='mouse')return;
+  if(e.target.closest('header,button,a,input,textarea,select,summary,dialog,label'))return;
+  header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');
+ });
+})();
+</script>
 </body></html>
