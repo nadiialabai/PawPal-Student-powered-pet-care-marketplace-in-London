@@ -441,6 +441,15 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
 }
 @media(max-width:380px){body>header{padding-inline:16px!important}}
 </style>
+
+<style id="unitails-scroll-down-hide-header">
+@media(max-width:800px){
+ body>header{transition:transform .26s cubic-bezier(.22,.8,.25,1)!important;will-change:transform!important}
+ body>header.mobile-header-hidden{transform:translate3d(0,-110%,0)!important;pointer-events:none!important;visibility:visible!important}
+ body>header.mobile-header-visible{transform:translate3d(0,0,0)!important;pointer-events:auto!important}
+}
+@media(prefers-reduced-motion:reduce){body>header{transition:none!important}}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">Find Part-Time Work</a><a href="#owners">Find a Pet Carer</a><a href="#how">How It Works</a><a href="#about">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
