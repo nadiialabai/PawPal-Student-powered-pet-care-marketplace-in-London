@@ -548,6 +548,14 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  #about>.grid>.tile>p{grid-column:2!important;grid-row:2!important;font-size:12px!important;line-height:1.4!important;margin:0!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;line-clamp:2!important;overflow:hidden!important}
 }
 </style>
+
+<style id="unitails-mobile-benefits-full-copy">
+/* Keep all three cards compact without truncating important information. */
+@media(max-width:800px){
+ #about>.grid>.tile>p{display:block!important;-webkit-line-clamp:unset!important;line-clamp:unset!important;-webkit-box-orient:initial!important;overflow:visible!important;text-overflow:clip!important;white-space:normal!important;font-size:12px!important;line-height:1.38!important}
+ #about>.grid>.tile{height:auto!important;min-height:0!important;align-items:center!important}
+}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">How It Works</a><a href="#services">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
