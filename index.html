@@ -485,52 +485,10 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
 @media(max-width:800px){#how{scroll-margin-top:110px!important;padding-top:28px!important}#how>.center{margin-bottom:20px!important}}
 </style>
 
-<style id="unitails-mobile-how-two-choices">
-.how-mobile-choices{display:none}
-@media(max-width:800px){
- #how{padding-top:20px!important}
- #how>.center{margin-bottom:18px!important}
- #how>.center h2{font-size:clamp(28px,7vw,38px)!important;line-height:1.12!important;margin:8px 0 0!important}
- #how .choice-heading-logo{width:58px!important;height:50px!important;margin-left:4px!important;vertical-align:middle!important}
- .how-mobile-choices{display:grid;gap:12px;margin:0 0 24px}
- .how-mobile-choice{display:flex;align-items:center;gap:13px;min-height:104px;padding:16px;border:1px solid #e2e2e2;border-radius:22px;background:#fff;color:#111;box-shadow:0 6px 18px rgba(0,0,0,.045);text-decoration:none}
- .how-choice-icon{width:55px;height:55px;flex:0 0 55px;border-radius:16px;background:#C7FF3C;display:flex;align-items:center;justify-content:center;font-size:29px}
- .how-choice-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:3px}
- .how-choice-copy strong{font-size:20px;line-height:1.2}
- .how-choice-copy small{font-size:13px;color:#555;line-height:1.35}
- .how-choice-arrow{font-size:25px;font-weight:500}
- #how .split>.panel{scroll-margin-top:120px}
-}
-</style>
-
 <style id="unitails-audience-focused-view">
 /* Audience-specific menu links show only the relevant card. How It Works shows both. */
 body.unitails-student-view #how #owners,body.unitails-owner-view #how #students{display:none!important}
 body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid-template-columns:minmax(0,1fr)!important;max-width:720px;margin-left:auto;margin-right:auto}
-</style>
-
-<style id="unitails-mobile-audience-navigation-fix">
-@media(max-width:800px){
- body.unitails-student-view #how .how-mobile-choices,body.unitails-owner-view #how .how-mobile-choices{display:none!important}
- #how .how-mobile-choices{scroll-margin-top:120px}
- #how .split>.panel{scroll-margin-top:120px}
-}
-</style>
-
-<style id="unitails-mobile-how-visible-choices">
-/* Fit heading and both audience choice bars into the first mobile viewport. */
-@media(max-width:800px){
- #how{padding-top:12px!important;padding-bottom:40px!important}
- #how>.center{margin-bottom:12px!important}
- #how>.center .kicker{font-size:11px!important;letter-spacing:.12em!important;margin-bottom:5px!important}
- #how>.center h2{font-size:clamp(25px,6vw,32px)!important;line-height:1.12!important;margin:5px auto 0!important;max-width:360px!important}
- #how .choice-heading-logo{width:44px!important;height:38px!important;margin-left:3px!important}
- #how .how-mobile-choices{gap:9px!important;margin-bottom:20px!important}
- #how .how-mobile-choice{min-height:76px!important;padding:10px 13px!important;border-radius:18px!important;gap:12px!important}
- #how .how-choice-icon{width:46px!important;height:46px!important;flex-basis:46px!important;border-radius:13px!important;font-size:25px!important}
- #how .how-choice-copy strong{font-size:17px!important}
- #how .how-choice-copy small{font-size:12px!important}
-}
 </style>
 
 <style id="unitails-mobile-three-benefits-one-screen">
@@ -635,120 +593,68 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 }
 </style>
 
-<style id="unitails-mobile-hero-photo-before-description">
-@media(max-width:800px){
- /* Flatten the copy wrapper so the photograph can sit immediately below the headline. */
- .hero>div:first-child{display:contents!important}
- .hero>.kicker{order:1!important}
- .hero>h1{order:2!important;font-size:clamp(32px,7.7vw,43px)!important;line-height:1.02!important;margin:4px 0 0!important}
- .hero>.hero-art{order:3!important;height:clamp(190px,28svh,250px)!important;min-height:190px!important;margin:0!important}
- .hero>p:not([style]){order:4!important;margin:0!important}
- .hero>p[style]{order:5!important;margin:0!important}
- .hero{gap:12px!important;padding-top:18px!important}
-}
-</style>
 
-<style id="unitails-mobile-hero-first-viewport-boundary">
-/* Keep the next section below the first mobile viewport without hiding hero content. */
+<style id="unitails-mobile-section-views">
+#primary-nav .mobile-section-link,.mobile-nav-label,.mobile-how-intro{display:none}
 @media(max-width:800px){
- .hero{min-height:calc(100svh - 104px)!important;box-sizing:border-box!important;justify-content:flex-start!important}
- #about{margin-top:0!important}
-}
-</style>
-
-<style id="unitails-mobile-hero-full-screen-fix">
-/* Reserve a full visible viewport for the hero after the fixed mobile header. */
-@media(max-width:800px){
- main#home>.hero{min-height:calc(100svh + 110px)!important;height:auto!important;box-sizing:border-box!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
- main#home>#about{margin-top:0!important}
-}
-</style>
-
-<style id="unitails-mobile-first-screen-hero-guard">
-@media(max-width:800px){
- html body main#home>.hero{min-height:max(100vh,100dvh)!important;box-sizing:border-box!important;}
- html body main#home>#about{margin-top:0!important;}
-}
-</style>
-
-<style id="unitails-mobile-independent-section-screens">
-/* Each top-level mobile section occupies at least a full screen, so the following
-   section cannot peek into view when this section is opened from navigation. */
-@media(max-width:800px){
- main#home>.hero,
- main#home>section{
-   box-sizing:border-box!important;
-   min-height:100dvh!important;
-   scroll-margin-top:110px!important;
- }
- main#home>.hero{min-height:calc(100dvh + 110px)!important}
- main#home>section{padding-bottom:max(28px,env(safe-area-inset-bottom))!important}
- /* The two detailed audience destinations are independently framed screens. */
- #how .split>.panel{box-sizing:border-box!important;min-height:calc(100dvh - 112px)!important;scroll-margin-top:112px!important}
- /* Avoid clipping any copy on short or small devices: sections may grow. */
- main#home>section,main#home>.hero,#how .split>.panel{height:auto!important;max-height:none!important;overflow:visible!important}
-}
-</style>
-
-<style id="unitails-mobile-section-viewport-structural-fix">
-/* One source of truth: earlier inline JS min-height override has been removed. */
-@media(max-width:800px){
- :root{--unitails-mobile-header-space:110px}
- html body main#home>.hero{
-   min-height:calc(100dvh + var(--unitails-mobile-header-space))!important;
-   height:auto!important;
-   box-sizing:border-box!important;
- }
- html body main#home>section{
-   min-height:calc(100dvh + 12px)!important;
-   height:auto!important;
-   box-sizing:border-box!important;
-   scroll-margin-top:var(--unitails-mobile-header-space)!important;
- }
- html body main#home #how .split>.panel{
-   min-height:calc(100dvh - var(--unitails-mobile-header-space) + 16px)!important;
-   box-sizing:border-box!important;
- }
-}
-</style>
-
-<style id="unitails-mobile-why-section-isolated-screen">
-/* Give Why UniTails its own complete mobile screen; the next section begins only after scrolling. */
-@media(max-width:800px){
- html body main#home>section#about{
-   min-height:calc(100dvh + 130px)!important;
-   padding-top:24px!important;
-   padding-bottom:140px!important;
-   box-sizing:border-box!important;
-   display:flex!important;
-   flex-direction:column!important;
-   justify-content:flex-start!important;
-   gap:14px!important;
- }
- #about>.center{margin-bottom:4px!important}
- #about>.grid{margin-top:0!important}
+  .desktop-nav-label{display:none}
+  .mobile-nav-label{display:inline}
+  body>header #primary-nav.is-open .mobile-section-link{display:block}
+  body>header #primary-nav.is-open{
+    max-height:calc(100vh - 124px);max-height:calc(100dvh - 124px - env(safe-area-inset-bottom,0px));
+    overflow-y:auto;overscroll-behavior:contain;
+  }
+  body>header #primary-nav a[aria-current="page"]{color:#a21963;font-weight:800}
+  html.unitails-mobile-views{scroll-behavior:auto;scroll-padding-top:0}
+  html.unitails-mobile-views main#home{min-height:calc(100svh - 104px)}
+  html.unitails-mobile-views main#home>.mobile-section-inactive,
+  html.unitails-mobile-views main#home #how .split.mobile-section-inactive,
+  html.unitails-mobile-views main#home #how .split>.panel.mobile-section-inactive,
+  html.unitails-mobile-views body>footer.mobile-section-inactive{display:none!important}
+  html.unitails-mobile-views main#home:has(> #get-involved:not(.mobile-section-inactive)){min-height:0}
+  html.unitails-mobile-views main#home>section{scroll-margin-top:0!important}
+  html.unitails-mobile-views main#home>section:is(#about,#services){padding-top:16px!important}
+  html.unitails-mobile-views main#home>#how{padding:16px 5% 24px!important}
+  html.unitails-mobile-views main#home>#how .split{grid-template-columns:minmax(0,1fr)!important;margin:0 auto!important}
+  html.unitails-mobile-views main#home>#how .split>.panel{min-height:0!important;height:auto!important;gap:12px}
+  html.unitails-mobile-views main#home>#how .panel h2{font-size:clamp(26px,7.5vw,36px);line-height:1.08;margin:0}
+  html.unitails-mobile-views main#home>#how .panel p{margin:0;line-height:1.5}
+  html.unitails-mobile-views main#home>#how .panel .steps{margin:0;line-height:1.5}
+  html.unitails-mobile-views .mobile-how-intro:not(.mobile-section-inactive){display:block}
+  .mobile-how-intro>.center{margin:0 auto 20px}
+  .mobile-how-intro h2{margin:8px 0 0}
+  .mobile-how-choices{display:grid;gap:10px}
+  .mobile-how-choices>a{display:flex;align-items:center;gap:12px;padding:14px;min-height:64px;border:1px solid #e4e4e4;border-radius:18px;background:#fff;color:#111;font-weight:800}
+  .mobile-how-choices>a span:first-child{display:grid;place-items:center;width:40px;height:40px;flex:0 0 40px;background:#c7ff3c;border-radius:12px}
+  .mobile-how-choices>a span:last-child{margin-inline-start:auto}
+  html.unitails-mobile-views main#home>.hero{gap:12px!important;padding-top:16px!important}
+  html.unitails-mobile-views main#home>.hero h1{font-size:clamp(30px,8vw,46px)!important;margin:12px 0 10px!important}
+  html.unitails-mobile-views main#home>.hero>.hero-art{height:clamp(128px,25svh,255px)!important}
+  html.unitails-mobile-views main#home>.hero>.hero-art>img{min-height:0!important}
+  html.unitails-mobile-views main#home>:is(#faq,#get-involved){padding-top:24px!important}
+  html.unitails-mobile-views main#home>#trust{padding-top:24px!important}
 }
 </style>
 </head>
 <body>
-<header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">How It Works</a><a href="#services">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
+<header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a class="mobile-section-link" href="#home">Home</a><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a class="mobile-section-link" href="#how">How It Works</a><a href="#about"><span class="desktop-nav-label">How It Works</span><span class="mobile-nav-label">Why UniTails?</span></a><a href="#services"><span class="desktop-nav-label">About UniTails</span><span class="mobile-nav-label">Our Services</span></a><a class="mobile-section-link" href="#trust">Safety and Responsibility</a><a class="mobile-section-link" href="#faq">FAQs</a><a class="mobile-section-link" href="#get-involved">Get Involved</a></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
 
 <a class="mobile-home-return" href="#home" aria-label="Back to homepage" title="Back to top"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 11 8-7 8 7"/><path d="M6.5 10v9h11v-9"/><path d="M10 19v-5h4v5"/></svg></a>
 <main id="home">
 <div class="hero"><div><div class="kicker">Coming soon to Fulham &amp; Parsons Green, London</div><h1>Love animals?<br>Earn money around your <span class="studies-cap-wrap"><svg class="studies-grad-cap" viewBox="0 0 64 54" aria-hidden="true" focusable="false"><path class="cap-board" d="M3 18 32 5l29 13-29 13Z"/><path class="cap-crown" d="M17 27v10c8 8 22 8 30 0V27l-15 7Z"/><path class="cap-tassel" d="M60 19v19"/><circle class="cap-tassel-tip" cx="60" cy="41" r="3"/></svg>studies.</span></h1><p>Flexible pet-care opportunities for university students. Convenient, local care for pet owners in Fulham and Parsons Green.</p><p style="font-size:13px;margin-top:22px"><strong>Pre-launch:</strong> Join the interest list. Bookings and carer verification are not yet available.</p></div><div class="hero-art"><img class="hero-photo" src="Image%203.jpeg" alt="UniTails homepage hero image"></div></div>
 
 <section id="about"><div class="center"><div class="kicker">Why UniTails?</div><h2>Student work, pet care and community in one place.</h2></div><div class="grid"><article class="tile"><div class="emoji">🎓</div><h3>Student employment</h3><p>Paid, flexible opportunities designed around lectures, exams and deadlines. Students choose their availability, services and rates.</p></article><article class="tile"><div class="emoji">🐾</div><h3>Pet care</h3><p>Planned dog walking, pet sitting and home visits for owners looking for a suitable local carer.</p></article><article class="tile community-pink"><div class="emoji" aria-label="Colourful house"><svg class="community-house-icon" viewBox="0 0 64 64" role="img" aria-label="Colourful house" xmlns="http://www.w3.org/2000/svg"><path d="M7 30 32 9l25 21" fill="none" stroke="#fff4db" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 30 32 10l23 20v27H9Z" fill="#ffdc5e" stroke="#202020" stroke-width="2.5" stroke-linejoin="round"/><path d="M4 31 32 6l28 25-5 6-23-21L9 37Z" fill="#4c85e9" stroke="#202020" stroke-width="2" stroke-linejoin="round"/><rect x="26" y="37" width="13" height="20" rx="2" fill="#a960c6" stroke="#202020" stroke-width="2"/><rect x="13" y="36" width="10" height="11" rx="1" fill="#7de2ee" stroke="#202020" stroke-width="2"/><path d="M18 36v11M13 41.5h10" stroke="#fff" stroke-width="1.5"/><circle cx="36" cy="48" r="1.5" fill="#fff"/><path d="M46 17V9h8v16" fill="#78c987" stroke="#202020" stroke-width="2"/></svg></div><h3>Local community</h3><p>Connecting students and neighbours, starting in Fulham and Parsons Green before potential expansion.</p></article></div></section>
-<section class="soft" id="how"><div class="split"><article class="panel" id="students"><div class="kicker">For university students</div><h2>Earn around your timetable.</h2><p>Looking for part-time work that fits your studies? Register your interest in future local pet-care opportunities.</p><ol class="steps"><li>Build a profile with your university and pet-care experience.</li><li>Choose the animals and services you're comfortable with.</li><li>Set availability around lectures, exams and other commitments.</li><li>Once launched and approved, manage requests and track earnings.</li></ol><button class="btn-pink" onclick="openForm('student')">Student Interest Form</button></article><article class="panel" id="owners"><div class="kicker">For pet owners</div><h2>Meet a local student carer.</h2><p>Discover a future service designed to help you find pet care that fits your routine.</p><ol class="steps"><li>Create a pet-owner profile and add your pets.</li><li>Search approved carers by animal, service and availability.</li><li>Review experience and request suitable bookings.</li><li>Communicate through UniTails when the marketplace launches.</li></ol><button onclick="openForm('owner')">Pet Owner Interest Form</button></article></div></section>
+<section class="soft" id="how"><div class="mobile-how-intro"><div class="center"><div class="kicker">How it works</div><h2>How UniTails works for you.</h2></div><div class="mobile-how-choices"><a href="#students"><span aria-hidden="true">🎓</span>I’m a student<span aria-hidden="true">→</span></a><a href="#owners"><span aria-hidden="true">🐾</span>I’m a pet owner<span aria-hidden="true">→</span></a></div></div><div class="split"><article class="panel" id="students"><div class="kicker">For university students</div><h2>Earn around your timetable.</h2><p>Looking for part-time work that fits your studies? Register your interest in future local pet-care opportunities.</p><ol class="steps"><li>Build a profile with your university and pet-care experience.</li><li>Choose the animals and services you're comfortable with.</li><li>Set availability around lectures, exams and other commitments.</li><li>Once launched and approved, manage requests and track earnings.</li></ol><button class="btn-pink" onclick="openForm('student')">Student Interest Form</button></article><article class="panel" id="owners"><div class="kicker">For pet owners</div><h2>Meet a local student carer.</h2><p>Discover a future service designed to help you find pet care that fits your routine.</p><ol class="steps"><li>Create a pet-owner profile and add your pets.</li><li>Search approved carers by animal, service and availability.</li><li>Review experience and request suitable bookings.</li><li>Communicate through UniTails when the marketplace launches.</li></ol><button onclick="openForm('owner')">Pet Owner Interest Form</button></article></div></section>
 <section id="services"><div class="center"><div class="kicker">OUR SERVICES</div><h2>Care for every kind of companion.</h2><p>From daily dog walks to thoughtful home visits, discover flexible pet-care services designed around your pet’s needs.</p></div><div class="grid"><article class="tile"><img class="dog-walking-photo" src="505018a630c1cfc0aaa58329fdab2ac0.jpg" alt="Dog walking service photograph" loading="lazy" decoding="async"><h3>Dog walking</h3><p>Local walks and companionship, planned around the dog's routine.</p></article><article class="tile"><img class="pet-sitting-photo" src="a30faca8e2c980fe4e882008a8aea0c6.jpg" alt="Fluffy grey cat licking its nose against a bright orange background" loading="lazy" decoding="async"><h3>Pet sitting</h3><p>Care for cats, rabbits and other animals, subject to carer suitability.</p></article><article class="tile home-visits-pink"><img class="home-visits-photo" src="/8dfdf0aac2185d9f189f3299582222fd.jpg?v=2" alt="Pet photograph illustrating home visits" loading="lazy" decoding="async"><h3>Home visits</h3><p>Feeding, check-ins and routine support for pets in their familiar environment.</p></article></div></section>
 <section class="trust" id="trust"><div class="kicker">Safety and responsibility</div><h2>Trust is something we have to build.</h2><p>Being a university student does not automatically qualify someone to care for animals. Before enabling bookings, UniTails intends to establish appropriate screening, operating procedures and safeguards.</p><div class="trust-list"><div><b>University and identity checks</b><span>Planned checks of enrolment, age eligibility and identity.</span></div><div><b>Experience and suitability</b><span>Planned review of relevant animal-care experience and service suitability.</span></div><div><b>Animal welfare and insurance</b><span>Safety procedures, insurance and any applicable legal requirements must be addressed before launch.</span></div></div><p style="margin-top:22px;font-size:13px">These are planned measures, not completed checks. UniTails has not yet approved or verified any carers through this website.</p></section>
-<section><div class="center"><div class="kicker">Frequently asked questions</div><h2>Quick answers.</h2></div><div style="max-width:760px;margin:auto"><details class="tile"><summary><strong>Who can apply to become a UniTails carer?</strong></summary><p>The proposed marketplace is for university students aged 18 or over. Eligibility and checks will be defined before onboarding opens.</p></details><details class="tile"><summary><strong>Can students choose their hours?</strong></summary><p>Yes, flexible availability around studies is a central planned feature of UniTails.</p></details><details class="tile"><summary><strong>Can I book a pet carer now?</strong></summary><p>No. UniTails is currently a pre-launch concept. You can preview the interest forms, but bookings are not active.</p></details><details class="tile"><summary><strong>Where will UniTails start?</strong></summary><p>The initial proposed service area is Fulham and Parsons Green in Southwest London.</p></details></div></section>
-<section class="bottom-cta"><div class="split" style="align-items:center"><div><div class="kicker">Get involved early</div><h2>Ready to shape UniTails?</h2><p>Whether you want flexible part-time work or future help caring for your pet, explore the appropriate interest form.</p></div><div class="actions" style="justify-content:center"><button onclick="openForm('student')">I'm a Student</button><button class="btn-white" onclick="openForm('owner')">I'm a Pet Owner</button></div></div></section>
+<section id="faq"><div class="center"><div class="kicker">Frequently asked questions</div><h2>Quick answers.</h2></div><div style="max-width:760px;margin:auto"><details class="tile"><summary><strong>Who can apply to become a UniTails carer?</strong></summary><p>The proposed marketplace is for university students aged 18 or over. Eligibility and checks will be defined before onboarding opens.</p></details><details class="tile"><summary><strong>Can students choose their hours?</strong></summary><p>Yes, flexible availability around studies is a central planned feature of UniTails.</p></details><details class="tile"><summary><strong>Can I book a pet carer now?</strong></summary><p>No. UniTails is currently a pre-launch concept. You can preview the interest forms, but bookings are not active.</p></details><details class="tile"><summary><strong>Where will UniTails start?</strong></summary><p>The initial proposed service area is Fulham and Parsons Green in Southwest London.</p></details></div></section>
+<section class="bottom-cta" id="get-involved"><div class="split" style="align-items:center"><div><div class="kicker">Get involved early</div><h2>Ready to shape UniTails?</h2><p>Whether you want flexible part-time work or future help caring for your pet, explore the appropriate interest form.</p></div><div class="actions" style="justify-content:center"><button onclick="openForm('student')">I'm a Student</button><button class="btn-white" onclick="openForm('owner')">I'm a Pet Owner</button></div></div></section>
 </main><footer><span><strong>UniTails</strong> — flexible work for students, personalised care for pets.<br>Proposed launch: Fulham &amp; Parsons Green, London.</span><span>Concept website · No live bookings or registrations</span><span>© 2026 UniTails · Privacy and terms to be prepared before launch</span></footer>
 <dialog id="signup" aria-labelledby="formtitle"><button class="close modal-close" type="button" onclick="document.getElementById('signup').close()" aria-label="Close form"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button><h2 id="formtitle" style="font-size:32px">Join the waitlist</h2><p id="formdesc"></p><form id="interest"><label for="name">Your name</label><input id="name" required maxlength="80" autocomplete="name"><label for="email">Email address</label><input id="email" type="email" required autocomplete="email"><label for="area">Your area</label><input id="area" placeholder="e.g. Fulham" required maxlength="100"><label for="details" id="detailslabel">Tell us a little more (optional)</label><textarea id="details" maxlength="500"></textarea><div class="notice"><strong>Demo only.</strong> This form validates inputs but does not send, save or register anyone. Use fictional information for testing.</div><button type="submit" class="btn-pink">Preview Registration</button></form><div id="success" class="success" role="status">✓ Form validated. No details have been saved or submitted.</div></dialog>
 <script>function openForm(type){document.getElementById('formtitle').textContent=type==='student'?'Student interest form':'Pet owner interest form';document.getElementById('formdesc').textContent=type==='student'?'Preview how students will express interest in flexible pet-care work.':'Preview how local pet owners will express interest in UniTails.';document.getElementById('detailslabel').textContent=type==='student'?'University and relevant pet-care experience (optional)':'Animals and care requirements (optional)';document.getElementById('interest').reset();document.getElementById('success').style.display='none';document.getElementById('signup').showModal()}document.getElementById('interest').addEventListener('submit',function(e){e.preventDefault();document.getElementById('success').style.display='block'});</script>
 <script>function toggleMenu(button){const nav=document.getElementById("primary-nav");const open=nav.classList.toggle("is-open");button.setAttribute("aria-expanded",String(open));button.innerHTML=open?'<span class="menu-close-glyph" aria-hidden="true">×</span>':"Menu ☰";button.setAttribute("aria-label",open?"Close menu":"Open menu");}document.querySelectorAll("#primary-nav a").forEach(a=>a.addEventListener("click",()=>{const nav=document.getElementById("primary-nav");nav.classList.remove("is-open");const btn=document.querySelector(".menu-toggle");btn.setAttribute("aria-expanded","false");btn.textContent="Menu ☰";}));</script><script>
 /* Dismiss the expanded mobile navigation as soon as the page starts scrolling. */
-(function(){let lastY=window.scrollY;function closeOnScroll(){const nav=document.getElementById('primary-nav');if(!nav||!nav.classList.contains('is-open')){lastY=window.scrollY;return;}if(Math.abs(window.scrollY-lastY)>1){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}lastY=window.scrollY;}window.addEventListener('scroll',closeOnScroll,{passive:true});window.addEventListener('touchmove',function(){const nav=document.getElementById('primary-nav');if(nav&&nav.classList.contains('is-open')){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}},{passive:true});})();
+(function(){let lastY=window.scrollY;function closeOnScroll(){const nav=document.getElementById('primary-nav');if(!nav||!nav.classList.contains('is-open')){lastY=window.scrollY;return;}if(Math.abs(window.scrollY-lastY)>1){nav.classList.remove('is-open');const btn=document.querySelector('.menu-toggle');if(btn){btn.setAttribute('aria-expanded','false');btn.textContent='Menu ☰';}}lastY=window.scrollY;}window.addEventListener('scroll',closeOnScroll,{passive:true});})();
 </script><script id="unitails-mobile-home-return-script">(function(){const btn=document.querySelector('.mobile-home-return');if(!btn)return;function update(){btn.classList.toggle('is-visible',window.innerWidth<=800&&window.scrollY>260)}window.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update,{passive:true});btn.addEventListener('click',function(){const nav=document.getElementById('primary-nav');if(nav)nav.classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰'}});update()})();</script><script id="unitails-direction-aware-mobile-header-script">(function(){const header=document.querySelector('body>header');if(!header)return;let lastY=Math.max(0,window.scrollY),upDistance=0;function setVisible(visible){header.classList.toggle('mobile-header-visible',visible);header.classList.toggle('mobile-header-hidden',!visible)}function handleScroll(){const y=Math.max(0,window.scrollY),delta=y-lastY;lastY=y;if(window.innerWidth>800){header.classList.remove('mobile-header-hidden','mobile-header-visible');return}const nav=document.getElementById('primary-nav');if(y<70||(nav&&nav.classList.contains('is-open'))){upDistance=0;setVisible(true);return}if(delta>2){upDistance=0;setVisible(false)}else if(delta< -2){upDistance+=-delta;if(upDistance>=8)setVisible(true)}}window.addEventListener('scroll',handleScroll,{passive:true});window.addEventListener('resize',handleScroll,{passive:true});handleScroll()})();</script>
 
 
@@ -781,89 +687,6 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  });
  window.addEventListener('hashchange',()=>apply(location.hash));
  apply(location.hash);
-})();
-</script>
-
-<script id="unitails-mobile-audience-navigation-fix-script">
-(function(){
- const mobile=()=>window.matchMedia('(max-width:800px)').matches;
- function navigate(hash,animate){
-   document.body.classList.toggle('unitails-student-view',hash==='#students');
-   document.body.classList.toggle('unitails-owner-view',hash==='#owners');
-   const header=document.querySelector('body>header');
-   const nav=document.querySelector('#primary-nav');
-   const toggle=document.querySelector('.menu-toggle');
-   if(nav)nav.classList.remove('is-open');
-   if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';}
-   if(header){header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');}
-   requestAnimationFrame(()=>requestAnimationFrame(()=>{
-     const selector=hash==='#how'?'#about':hash;
-     const target=document.querySelector(selector);
-     if(!target)return;
-     const offset=header?Math.ceil(header.getBoundingClientRect().height)+14:118;
-     window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:animate?'smooth':'instant'});
-   }));
-   if(location.hash!==hash)history.pushState(null,'',hash);
- }
- document.addEventListener('click',function(e){
-   if(!mobile())return;
-   const a=e.target.closest('a[href="#students"],a[href="#owners"],a[href="#how"]');
-   if(!a)return;
-   e.preventDefault();e.stopImmediatePropagation();
-   navigate(a.getAttribute('href'),true);
- },true);
- if(mobile()&&['#students','#owners','#how'].includes(location.hash)){
-   if(document.readyState==='complete')navigate(location.hash,false);
-   else window.addEventListener('load',()=>navigate(location.hash,false),{once:true});
- }
-})();
-</script>
-
-<script id="unitails-mobile-benefits-scroll">
-(function(){
- function goToBenefits(event){
-  if(!window.matchMedia('(max-width:800px)').matches)return;
-  event.preventDefault();event.stopImmediatePropagation();
-  const nav=document.querySelector('#primary-nav');const toggle=document.querySelector('.menu-toggle');const header=document.querySelector('body>header');
-  if(nav)nav.classList.remove('is-open');
-  if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';}
-  if(header){header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');}
-  document.body.classList.remove('unitails-student-view','unitails-owner-view');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-   const target=document.querySelector('#about');if(!target)return;
-   const offset=(header?header.getBoundingClientRect().height:104)+8;
-   window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:'smooth'});
-  }));
-  if(location.hash!=='#about')history.pushState(null,'','#about');
- }
- document.addEventListener('click',function(event){
-  const a=event.target.closest('a[href="#about"]');if(a)goToBenefits(event);
- },true);
-})();
-</script>
-
-<script id="unitails-mobile-about-services-scroll">
-(function(){
- document.addEventListener('click',function(event){
-  if(!window.matchMedia('(max-width:800px)').matches)return;
-  const link=event.target.closest('#primary-nav a[href="#services"]');
-  if(!link)return;
-  event.preventDefault();event.stopImmediatePropagation();
-  const header=document.querySelector('body>header');
-  const nav=document.querySelector('#primary-nav');
-  const toggle=document.querySelector('.menu-toggle');
-  if(nav)nav.classList.remove('is-open');
-  if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';}
-  if(header){header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');}
-  document.body.classList.remove('unitails-student-view','unitails-owner-view');
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{
-   const target=document.querySelector('#services .center')||document.querySelector('#services');
-   if(!target)return;
-   const offset=(header?header.getBoundingClientRect().height:104)+12;
-   window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:'smooth'});
-  }));
-  if(location.hash!=='#services')history.pushState(null,'','#services');
- },true);
 })();
 </script>
 
@@ -917,4 +740,92 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 </script>
 
 
+
+<script id="unitails-mobile-section-router">
+(function(){
+  const mobile=window.matchMedia('(max-width:800px)');
+  const root=document.documentElement;
+  const body=document.body;
+  const main=document.getElementById('home');
+  const header=document.querySelector('body>header');
+  const nav=document.getElementById('primary-nav');
+  const toggle=header.querySelector('.menu-toggle');
+  const how=document.getElementById('how');
+  const intro=how.querySelector('.mobile-how-intro');
+  const split=how.querySelector('.split');
+  const footer=document.querySelector('body>footer');
+  const views=new Map([
+    ['#home',main.querySelector('.hero')],
+    ['#about',document.getElementById('about')],
+    ['#how',how],['#students',document.getElementById('students')],
+    ['#owners',document.getElementById('owners')],
+    ['#services',document.getElementById('services')],
+    ['#trust',document.getElementById('trust')],
+    ['#faq',document.getElementById('faq')],
+    ['#get-involved',document.getElementById('get-involved')]
+  ]);
+  const links=Array.from(nav.querySelectorAll('a'));
+  const targets=[...new Set([...views.values(),intro,split,footer])];
+  const inactive='mobile-section-inactive';
+  let current;
+  function closeMenu(){
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open menu');
+    toggle.textContent='Menu ☰';
+    header.classList.remove('mobile-header-hidden');
+    header.classList.add('mobile-header-visible');
+  }
+  function render(hash,focus){
+    if(!mobile.matches)return;
+    const route=views.has(hash)?hash:'#home';
+    if(current===route&&!focus)return;
+    current=route;
+    root.classList.add('unitails-mobile-views');
+    body.classList.remove('unitails-student-view','unitails-owner-view');
+    const view=views.get(route);
+    const audience=route==='#students'||route==='#owners';
+    const visible=new Set([view]);
+    if(audience){visible.add(how);visible.add(split);}
+    if(route==='#how')visible.add(intro);
+    if(route==='#get-involved')visible.add(footer);
+    targets.forEach(el=>el.classList.toggle(inactive,!visible.has(el)));
+    links.forEach(link=>{
+      if(link.hash===route)link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+    });
+    closeMenu();
+    window.scrollTo(0,0);
+    if(focus){
+      const heading=(route==='#how'?intro:view).querySelector('h1,h2');
+      if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}
+    }
+  }
+  function applyLocation(){render(location.hash,false);}
+  function syncMode(){
+    if(mobile.matches){history.scrollRestoration='manual';applyLocation();return;}
+    if(!root.classList.contains('unitails-mobile-views'))return;
+    history.scrollRestoration='auto';
+    current=undefined;
+    root.classList.remove('unitails-mobile-views');
+    targets.forEach(el=>el.classList.remove(inactive));
+    links.forEach(link=>link.removeAttribute('aria-current'));
+    body.classList.toggle('unitails-student-view',location.hash==='#students');
+    body.classList.toggle('unitails-owner-view',location.hash==='#owners');
+  }
+  document.addEventListener('click',event=>{
+    if(!mobile.matches||event.button!==0||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey)return;
+    const link=event.target.closest('a[href^="#"]');
+    if(!link||!views.has(link.hash))return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    if(location.hash!==link.hash)history.pushState(null,'',link.hash);
+    render(link.hash,true);
+  },true);
+  window.addEventListener('popstate',applyLocation);
+  window.addEventListener('hashchange',applyLocation);
+  mobile.addEventListener('change',syncMode);
+  syncMode();
+})();
+</script>
 </body></html>
