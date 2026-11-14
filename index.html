@@ -508,6 +508,14 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
 body.unitails-student-view #how #owners,body.unitails-owner-view #how #students{display:none!important}
 body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid-template-columns:minmax(0,1fr)!important;max-width:720px;margin-left:auto;margin-right:auto}
 </style>
+
+<style id="unitails-mobile-audience-navigation-fix">
+@media(max-width:800px){
+ body.unitails-student-view #how .how-mobile-choices,body.unitails-owner-view #how .how-mobile-choices{display:none!important}
+ #how .how-mobile-choices{scroll-margin-top:120px}
+ #how .split>.panel{scroll-margin-top:120px}
+}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">How It Works</a><a href="#services">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
@@ -574,6 +582,41 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
  });
  window.addEventListener('hashchange',()=>apply(location.hash));
  apply(location.hash);
+})();
+</script>
+
+<script id="unitails-mobile-audience-navigation-fix-script">
+(function(){
+ const mobile=()=>window.matchMedia('(max-width:800px)').matches;
+ function navigate(hash,animate){
+   document.body.classList.toggle('unitails-student-view',hash==='#students');
+   document.body.classList.toggle('unitails-owner-view',hash==='#owners');
+   const header=document.querySelector('body>header');
+   const nav=document.querySelector('#primary-nav');
+   const toggle=document.querySelector('.menu-toggle');
+   if(nav)nav.classList.remove('is-open');
+   if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='Menu ☰';}
+   if(header){header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');}
+   requestAnimationFrame(()=>requestAnimationFrame(()=>{
+     const selector=hash==='#how'?'#how .how-mobile-choices':hash;
+     const target=document.querySelector(selector);
+     if(!target)return;
+     const offset=header?Math.ceil(header.getBoundingClientRect().height)+14:118;
+     window.scrollTo({top:Math.max(0,window.scrollY+target.getBoundingClientRect().top-offset),behavior:animate?'smooth':'instant'});
+   }));
+   if(location.hash!==hash)history.pushState(null,'',hash);
+ }
+ document.addEventListener('click',function(e){
+   if(!mobile())return;
+   const a=e.target.closest('a[href="#students"],a[href="#owners"],a[href="#how"]');
+   if(!a)return;
+   e.preventDefault();e.stopImmediatePropagation();
+   navigate(a.getAttribute('href'),true);
+ },true);
+ if(mobile()&&['#students','#owners','#how'].includes(location.hash)){
+   if(document.readyState==='complete')navigate(location.hash,false);
+   else window.addEventListener('load',()=>navigate(location.hash,false),{once:true});
+ }
 })();
 </script>
 </body></html>
