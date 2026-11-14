@@ -802,4 +802,49 @@ section.trust#trust{margin:12px 12px 24px!important;padding:26px 20px!important;
   window.addEventListener('hashchange',function(){if(location.hash==='#trust')requestAnimationFrame(alignTrust)});
   if(location.hash==='#trust')window.addEventListener('load',alignTrust,{once:true});
 })();
+</script><style id="unitails-consistent-mobile-anchor-spacing">
+@media(max-width:800px){
+  html{scroll-padding-top:80px!important}
+  main#home>section[id], main#home #students,main#home #owners{scroll-margin-top:80px!important}
+}
+</style>
+<script id="unitails-consistent-mobile-section-navigation">
+(function(){
+ const breakpoint=window.matchMedia('(max-width:800px)');
+ const ids=new Set(['home','about','how','students','owners','services','trust','faq','get-involved']);
+ function align(id,behavior){
+   if(!breakpoint.matches||!ids.has(id))return;
+   const section=document.getElementById(id);
+   if(!section)return;
+   const header=document.querySelector('body>header');
+   const headerBottom=header?header.getBoundingClientRect().bottom:0;
+   const targetTop=window.scrollY+section.getBoundingClientRect().top-headerBottom;
+   window.scrollTo({top:Math.max(0,Math.round(targetTop)),behavior:behavior||'auto'});
+ }
+ function closeMenu(){
+   const nav=document.getElementById('primary-nav');
+   const toggle=document.querySelector('.menu-toggle');
+   if(nav)nav.classList.remove('is-open');
+   if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');toggle.textContent='Menu ☰';}
+ }
+ document.addEventListener('click',function(event){
+   if(!breakpoint.matches)return;
+   const link=event.target.closest('a[href^="#"]');
+   if(!link)return;
+   const id=link.getAttribute('href').slice(1);
+   if(!ids.has(id))return;
+   event.preventDefault();
+   event.stopImmediatePropagation();
+   closeMenu();
+   if(location.hash!=='#'+id)history.pushState(null,'','#'+id);
+   requestAnimationFrame(function(){align(id,'smooth')});
+ },true);
+ function alignFromHash(){
+   const id=location.hash.slice(1);
+   if(ids.has(id))requestAnimationFrame(function(){align(id,'auto')});
+ }
+ window.addEventListener('popstate',alignFromHash);
+ window.addEventListener('hashchange',alignFromHash);
+ window.addEventListener('load',alignFromHash,{once:true});
+})();
 </script></body></html>
