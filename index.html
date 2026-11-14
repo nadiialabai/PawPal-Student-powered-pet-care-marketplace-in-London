@@ -703,6 +703,22 @@ section.trust#trust{margin:12px 12px 24px!important;padding:26px 20px!important;
   main>section.trust#trust{margin-top:30px!important;scroll-margin-top:calc(100px + env(safe-area-inset-top, 0px))!important}
   main>section#faq,main>section#get-involved{scroll-margin-top:calc(100px + env(safe-area-inset-top, 0px))!important}
 }
+</style><style id="unitails-refined-mobile-menu-control">
+@media(max-width:800px){
+ /* Compact close control, familiar from mobile navigation drawers. */
+ body>header .menu-toggle[aria-expanded="true"]{
+   width:48px!important;min-width:48px!important;max-width:48px!important;
+   height:48px!important;min-height:48px!important;
+   padding:0!important;border:1.5px solid #202020!important;
+   border-radius:50%!important;background:#fff!important;
+   display:inline-flex!important;align-items:center!important;justify-content:center!important;
+   flex:0 0 48px!important;
+ }
+ body>header .menu-toggle[aria-expanded="true"] .menu-close-glyph{
+   font-size:26px!important;font-weight:400!important;line-height:1!important;
+   transform:none!important;
+ }
+}
 </style></head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a class="mobile-section-link" href="#home">Home</a><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">Why UniTails?</a><a href="#services">Our Services</a><a class="mobile-section-link" href="#trust">Safety and Responsibility</a><a class="mobile-section-link" href="#faq">FAQs</a><a class="mobile-section-link" href="#get-involved">Get Involved</a></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
