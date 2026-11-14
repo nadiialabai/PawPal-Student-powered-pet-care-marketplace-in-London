@@ -905,6 +905,20 @@ body>header #primary-nav.is-open a[href="#owners"]{background:#FF2995!important;
 }
 @media(prefers-reduced-motion:reduce){body>header #primary-nav>a{transition:none!important}}
 </style>
+
+<style id="unitails-navigation-unified-v2">
+/* Four equal-weight navigation items, visually cohesive and clearly interactive. */
+@media(min-width:801px){
+body>header #primary-nav{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;gap:clamp(7px,.85vw,13px)!important;border-radius:0!important}
+body>header #primary-nav>a:not(.mobile-section-link),body>header #primary-nav>a[href="#owners"]{box-sizing:border-box!important;min-height:44px!important;padding:11px clamp(13px,1.2vw,19px)!important;background:#FFF0F6!important;color:#171717!important;border:1px solid #F4CCDE!important;border-radius:13px!important;box-shadow:0 2px 0 rgba(23,23,23,.045)!important;font-weight:800!important;letter-spacing:-.01em!important;transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease!important}
+body>header #primary-nav>a:not(.mobile-section-link):hover,body>header #primary-nav>a[href="#owners"]:hover{background:#FF2995!important;border-color:#FF2995!important;color:#fff!important;transform:translateY(-2px)!important}
+body>header #primary-nav>a:not(.mobile-section-link):focus-visible{outline:3px solid #171717!important;outline-offset:3px!important}
+}
+@media(max-width:800px){
+body>header #primary-nav.is-open a,body>header #primary-nav.is-open a[href="#owners"]{background:#FFF0F6!important;color:#171717!important;border:1px solid #F4CCDE!important;border-radius:12px!important;margin:4px 0!important;padding:13px 15px!important;font-weight:800!important}
+body>header #primary-nav.is-open a:hover,body>header #primary-nav.is-open a:focus-visible{background:#FF2995!important;color:#fff!important;border-color:#FF2995!important}
+}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a class="mobile-section-link" href="#home">Home</a><a href="#students">For Students</a><a href="#owners">For Pet Owners</a><a href="#about">Why UniTails?</a><a href="#services">Our Services</a><a class="mobile-section-link" href="#trust">Safety and Responsibility</a><a class="mobile-section-link" href="#faq">FAQs</a><a class="mobile-section-link" href="#get-involved">Get Involved</a></nav><button class="menu-toggle" type="button" aria-label="Open menu" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button></header>
