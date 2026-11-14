@@ -756,27 +756,40 @@ body.unitails-student-view #how .split,body.unitails-owner-view #how .split{grid
 </script>
 
 <script id="unitails-tap-to-reveal-mobile-header">
-/* A stationary tap anywhere in page content reveals the existing navigation. */
+/* Tapping non-interactive page content opens the actual mobile menu. */
 (function(){
- const header=document.querySelector('body>header');if(!header)return;
- let startX=0,startY=0,moved=false;
- document.addEventListener('touchstart',function(e){
+ const header=document.querySelector('body>header');
+ const nav=document.getElementById('primary-nav');
+ const button=document.querySelector('.menu-toggle');
+ if(!header||!nav||!button)return;
+ let startX=0,startY=0,dragged=false;
+ const mobile=()=>window.matchMedia('(max-width:800px)').matches;
+ const interactive='header,button,a,input,textarea,select,summary,dialog,label,[contenteditable="true"]';
+ function openNavigation(){
+  header.classList.remove('mobile-header-hidden');
+  header.classList.add('mobile-header-visible');
+  if(!nav.classList.contains('is-open')){
+   nav.classList.add('is-open');
+   button.setAttribute('aria-expanded','true');
+   button.setAttribute('aria-label','Close menu');
+   button.innerHTML='<span class="menu-close-glyph" aria-hidden="true">×</span>';
+  }
+ }
+ document.addEventListener('touchstart',e=>{
   if(e.touches.length!==1)return;
-  startX=e.touches[0].clientX;startY=e.touches[0].clientY;moved=false;
+  startX=e.touches[0].clientX;startY=e.touches[0].clientY;dragged=false;
  },{passive:true});
- document.addEventListener('touchmove',function(e){
-  if(!e.touches.length)return;
-  if(Math.abs(e.touches[0].clientX-startX)>9||Math.abs(e.touches[0].clientY-startY)>9)moved=true;
+ document.addEventListener('touchmove',e=>{
+  if(e.touches.length!==1)return;
+  if(Math.abs(e.touches[0].clientX-startX)>10||Math.abs(e.touches[0].clientY-startY)>10)dragged=true;
  },{passive:true});
- document.addEventListener('touchend',function(e){
-  if(window.innerWidth>800||moved||e.changedTouches.length!==1)return;
-  if(e.target.closest('header,button,a,input,textarea,select,summary,dialog,label'))return;
-  header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');
+ document.addEventListener('touchend',e=>{
+  if(!mobile()||dragged||e.changedTouches.length!==1||e.target.closest(interactive))return;
+  openNavigation();
  },{passive:true});
- document.addEventListener('click',function(e){
-  if(window.innerWidth>800||e.detail===0||e.pointerType!=='mouse')return;
-  if(e.target.closest('header,button,a,input,textarea,select,summary,dialog,label'))return;
-  header.classList.remove('mobile-header-hidden');header.classList.add('mobile-header-visible');
+ document.addEventListener('click',e=>{
+  if(!mobile()||e.detail===0||e.pointerType!=='mouse'||e.target.closest(interactive))return;
+  openNavigation();
  });
 })();
 </script>
