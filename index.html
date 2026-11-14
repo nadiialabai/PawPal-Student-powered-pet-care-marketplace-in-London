@@ -778,4 +778,28 @@ section.trust#trust{margin:12px 12px 24px!important;padding:26px 20px!important;
 
 
 
-</body></html>
+<style id="unitails-trust-section-boundary">
+@media(max-width:800px){
+  /* The safety section begins immediately below the fixed navigation. */
+  main#home>section#trust.trust{margin-top:0!important;scroll-margin-top:80px!important}
+}
+</style>
+<script id="unitails-trust-anchor-alignment">
+(function(){
+  function alignTrust(){
+    if(window.innerWidth>800)return;
+    const section=document.getElementById('trust');
+    const header=document.querySelector('body>header');
+    if(!section||!header)return;
+    const top=window.scrollY+section.getBoundingClientRect().top-header.getBoundingClientRect().bottom;
+    window.scrollTo({top:Math.max(0,top),behavior:'instant'});
+  }
+  document.querySelectorAll('a[href="#trust"]').forEach(function(link){
+    link.addEventListener('click',function(){
+      requestAnimationFrame(function(){requestAnimationFrame(alignTrust)});
+    });
+  });
+  window.addEventListener('hashchange',function(){if(location.hash==='#trust')requestAnimationFrame(alignTrust)});
+  if(location.hash==='#trust')window.addEventListener('load',alignTrust,{once:true});
+})();
+</script></body></html>
