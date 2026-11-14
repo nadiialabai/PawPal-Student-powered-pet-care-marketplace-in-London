@@ -324,6 +324,19 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
 #services>.grid>.tile>p{font-size:15px!important;line-height:1.55!important;color:#555!important;margin:0!important;max-width:360px}
 @media(max-width:800px){#services>.grid{gap:34px!important}#services>.grid>.tile>img.dog-walking-photo,#services>.grid>.tile>img.pet-sitting-photo,#services>.grid>.tile>img.home-visits-photo{aspect-ratio:4/3!important;border-radius:20px!important}}
 </style>
+
+<style id="unitails-butter-yellow-accent">
+/* Restrained secondary accent: butter yellow #FFE68A. Pink remains the primary brand colour. */
+:root{--ut-butter:#FFE68A;--ut-ivory:#FFFDF8}
+/* Warm highlight on the student pathway, without recolouring the entire card. */
+.audience-pathway-card.student-pathway .audience-pathway-icon{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:18px;background:var(--ut-butter);filter:none!important}
+/* A second, small yellow cue for the student information panel. */
+#how #students>.kicker{display:inline-block;align-self:flex-start;background:var(--ut-butter);color:#171717!important;padding:8px 12px;border-radius:999px;letter-spacing:.06em}
+/* Subtle warmth in the community-focused value card; keep cards white. */
+#about .grid .tile.community-pink .emoji{display:inline-flex;align-items:center;justify-content:center;width:62px;height:62px;border-radius:18px;background:var(--ut-butter)!important}
+/* Small accent behind the services section label, not the photography. */
+#services>.center>.kicker{display:inline-block;background:var(--ut-butter);color:#171717!important;padding:7px 13px;border-radius:999px;letter-spacing:.1em}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#home">Home</a><a href="#students">Find Part-Time Work</a><a href="#owners">Find a Pet Carer</a><a href="#how">How It Works</a><a href="#about">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
