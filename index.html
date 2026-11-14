@@ -420,6 +420,15 @@ footer{background:#171717!important;color:#f6f6f6!important;border-radius:var(--
 }
 @media(prefers-reduced-motion:reduce){header{transition:none!important}}
 </style>
+
+<style id="unitails-mobile-header-flush-top">
+/* When revealed during upward scrolling, attach the navigation to the top edge. */
+@media(max-width:800px){
+ header{top:0!important;margin-top:0!important;border-radius:0 0 26px 26px!important}
+ header.mobile-header-visible{top:0!important;margin-top:0!important}
+ header.mobile-header-hidden{transform:translateY(calc(-100% - 16px))!important}
+}
+</style>
 </head>
 <body>
 <header><a class="logo" href="#home" aria-label="UniTails home"><span class="brand-logo-layers" role="img" aria-label="UniTails original pink paw logo with gently opening and closing toes"><img class="brand-logo-original brand-logo-base" src="UniTails%20Pink%20Paw%20Logo.png" alt="" decoding="async"><img class="brand-logo-original brand-logo-flex" src="UniTails%20Pink%20Paw%20Logo.png" alt="" aria-hidden="true" decoding="async"></span></a><nav id="primary-nav" aria-label="Main navigation"><a href="#students">Find Part-Time Work</a><a href="#owners">Find a Pet Carer</a><a href="#how">How It Works</a><a href="#about">About UniTails</a></nav><button class="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" onclick="toggleMenu(this)">Menu ☰</button><button class="btn-pink" onclick="openForm('student')">Join Waitlist</button></header>
